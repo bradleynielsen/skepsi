@@ -8,67 +8,87 @@ import { Card, CardTitle, CardText, CardActions } from 'material-ui/Card'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
 
+import { changeUser, changeTextField } from '../actions/changeUser'
+
+@connect((store) => {
+  return {
+    count: store.counter.count,
+    user: store.user.user,
+    textField: store.user.textField
+  };
+})
 
 export default class Welcome extends React.Component {
 
+  constructor() {
+    super()
+    this.changeUser = this.changeUser.bind(this)
+    this.changeTextField = this.changeTextField.bind(this)
+  }
 
+  incrementCount() {
+    this.props.dispatch(incrementCount())
+  }
 
+  decrementCount() {
+    this.props.dispatch(decrementCount())
+  }
+
+  changeUser() {
+    this.props.dispatch(changeUser())
+  }
+
+  changeTextField(event) {
+    this.props.dispatch(changeTextField(event.target.value))
+  }
 
   render() {
     return (
       <div>
-        <Row>        
+        <Row>
           <Col md={12} >
-            <card>
+            <Card>
               <CardTitle
                 title={`Login Page`}
                 subtitle={`Enter your shit`}
               />
-
-
               <div>
-                <Col md={12} >
-
+                <Col md={12}>
                   <TextField
                     hintText="enter your username"
                     fullWidth={true}
-                  /><br /><br /><br/>
+                  /><br/>
+                  <TextField
+                    hintText="Password Field"
+                    floatingLabelText="Password"
+                    type="password"
+                    fullWidth={true}
+                  /><br />
+                  <CardActions>
+                    <RaisedButton
+                        label="Sign-in"
+                        primary={true}
+                        color={'black'}
+                    /><br/>
 
-                <TextField
-                  hintText="Password Field"
-                  floatingLabelText="Password"
-                  type="password"
-                  fullWidth={true}
-                /><br />
-
-
-                <RaisedButton
-                    label="Sign-in"
-                    primary={true}
-                    color={'black'}
-                />  <br /><br /><br /><br /><br />
-                <RaisedButton
-                    label="New Users"
-                    primary={true}
-                    color={'black'}
-                />
-
+                    <Link to=`/newusers`>
+                      <RaisedButton
+                          label="New User"
+                          primary={true}
+                          color={'black'}
+                      />
+                    </Link>
+                  </CardActions>
                 </Col>
               </div>
 
 
-            </card>
+            </Card>
           </Col>
-        </Row>        
-
-
-
-
-
+        </Row>
 
 
       </div>
     );
   }
-   
-}   
+}

@@ -23,13 +23,18 @@ export default class NewNotePage extends React.Component {
   render() {
     return (
       <div>
-        <TextField
-          hintText="Message Field"
-          floatingLabelText="MultiLine and FloatingLabel"
-          multiLine={true}
-          rows={2}
-        /><br />
-
+        <Row>
+          <Col md={8} offset={{ md: 2 }}>
+            <Card>
+              <TextField
+                hintText="Message Field"
+                floatingLabelText="MultiLine and FloatingLabel"
+                multiLine={true}
+                rows={2}
+              /><Break/>
+            </Card>
+          </Col>
+        </Row>
       </div>
     );
   }

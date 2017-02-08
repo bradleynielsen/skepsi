@@ -1,9 +1,6 @@
 import React from 'react'
 import { connect } from "react-redux"
 
-import { incrementCount, decrementCount, changeInputNum } from '../actions/countActions'
-import { changeInputName, submitName } from '../actions/userActions'
-
 import { Row, Col } from 'react-grid-system'
 
 import { Card, CardTitle, CardText, CardActions } from 'material-ui/Card'
@@ -23,8 +20,6 @@ export default class Welcome extends React.Component {
 
   constructor() {
     super()
-    this.incrementCount = this.incrementCount.bind(this)
-    this.decrementCount = this.decrementCount.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleNameChange = this.handleNameChange.bind(this)
     this.submitName = this.submitName.bind(this)
@@ -47,7 +42,6 @@ export default class Welcome extends React.Component {
   render() {
     return (
       <div>
-
         <Row>
           <Col md={8} offset={{ md: 2 }}>
             <Card>
@@ -66,7 +60,7 @@ export default class Welcome extends React.Component {
               </div>
 
               </CardText>
-              
+
             </Card>
           </Col>
         </Row>
@@ -80,6 +74,7 @@ export default class Welcome extends React.Component {
                   value={this.props.inputName}
                 />
               </CardText>
+
               <CardActions>
                 <RaisedButton
                   label="Users"
@@ -87,7 +82,7 @@ export default class Welcome extends React.Component {
                   onClick={this.submitName}
                 />
               </CardActions>
-             
+
             </Card>
           </Col>
         </Row>
