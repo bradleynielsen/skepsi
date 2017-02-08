@@ -1,19 +1,18 @@
 import React from 'react'
 import { connect } from "react-redux"
-
-
 import { Row, Col } from 'react-grid-system'
-
 import { Card, CardTitle, CardText, CardActions } from 'material-ui/Card'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
 
+import { changeUser, changeTextField } from '../actions/loginActions'
+
+
 
 @connect((store) => {
   return {
-    count: store.counter.count,
-    user: store.user.user,
-    textField: store.user.textField
+    user: store.login.user,
+    textField: store.login.textField
   };
 })
 
@@ -23,14 +22,6 @@ export default class Welcome extends React.Component {
     super()
     this.changeUser = this.changeUser.bind(this)
     this.changeTextField = this.changeTextField.bind(this)
-  }
-
-  incrementCount() {
-    this.props.dispatch(incrementCount())
-  }
-
-  decrementCount() {
-    this.props.dispatch(decrementCount())
   }
 
   changeUser() {
@@ -54,30 +45,49 @@ export default class Welcome extends React.Component {
               <div>
                 <Col md={12}>
                   <TextField
-                    hintText="enter your username"
+                    hintText="Username"
                     fullWidth={true}
                   /><br/>
                   <TextField
-                    hintText="Password Field"
+                    // hintText="Password Field"
                     floatingLabelText="Password"
                     type="password"
                     fullWidth={true}
                   /><br />
                   <CardActions>
-                    <RaisedButton
-                        label="Sign-in"
-                        primary={true}
-                        color={'black'}
-                    /><br/>
+                    <Col md={8} offset={{ md: 2 }}>
 
-                    <Link to= {`/newusers`}>
-                      <RaisedButton
+                        <RaisedButton
+                          label="Sign-in"
+                          primary={true}
+                          color={'black'}
+                        />
+
+                    </Col>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+
+                      <Col md={8} offset={{ md: 10 }}>
+
+                        <RaisedButton
                           label="New User"
                           primary={true}
                           color={'black'}
-                      />
-                    </Link>
+                          offset={{ md: 6 }}
+                        />
+
+                    </Col>
                   </CardActions>
+
                 </Col>
               </div>
 

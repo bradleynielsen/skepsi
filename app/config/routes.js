@@ -11,7 +11,7 @@ module.exports = (
       <Route path="/" component={Main}>
         <Route path="/login" component={LoginPage} />
         <Route path="/newnote" component={NewNotePage} />
-        <IndexRoute component={NewNotePage} />
+        <IndexRoute component={LoginPage} />
       </Route>
   </Router>
 );

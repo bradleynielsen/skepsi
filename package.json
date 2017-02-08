@@ -21,8 +21,12 @@
   "dependencies": {
     "acuread": "git+https://github.com/stephen-hardy/acuRead.git",
     "axios": "^0.15.3",
+    "bluebird": "^3.4.7",
+    "body-parser": "^1.16.0",
     "express": "^4.14.0",
     "material-ui": "^0.16.6",
+    "mongoose": "^4.8.1",
+    "morgan": "^1.8.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-grid-system": "^2.4.0",
