@@ -1,3 +1,4 @@
+
 export default function reducer(state={
     user: '',
     inputName: ''

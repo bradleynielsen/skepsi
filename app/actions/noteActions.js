@@ -1,18 +1,6 @@
-export function incrementCount() {
+export function changeTextField(input) {
   return {
-    type: 'INC_COUNT'
-  }
-}
-
-export function decrementCount() {
-  return {
-    type: 'DEC_COUNT'
-  }
-}
-
-export function changeInputNum(num) {
-  return {
-    type: 'CHANGE_INPUT_NUM',
-    payload: num
+    type: 'CHANGE_TEXTFIELD',
+    payload: input
   }
 }

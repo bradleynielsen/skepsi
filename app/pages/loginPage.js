@@ -8,7 +8,6 @@ import { Card, CardTitle, CardText, CardActions } from 'material-ui/Card'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
 
-import { changeUser, changeTextField } from '../actions/changeUser'
 
 @connect((store) => {
   return {
@@ -71,7 +70,7 @@ export default class Welcome extends React.Component {
                         color={'black'}
                     /><br/>
 
-                    <Link to=`/newusers`>
+                    <Link to= {`/newusers`}>
                       <RaisedButton
                           label="New User"
                           primary={true}
