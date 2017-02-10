@@ -13,7 +13,16 @@ var PORT = process.env.PORT || 3000;
 var app = express();
 
 // Middleware
+
+// use the public folder
 app.use(express.static(path.join(__dirname, 'public')));
+//
+app.use(logger(`dev`));
+
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({ extended: false }));
+
 
 // MONGOOSE DATABASE CONFIGURATION
 // ===============================================
@@ -26,11 +35,21 @@ if (process.env.MONGODB_URI) {
     mongoose.connect(process.env.MONGODB_URI);
 } // this executes if the app is executed on local machine
 else {
-    console.log('Connecting to ', databaseuri)
+    console.log('Connecting to ', databaseuri);
     mongoose.connect(databaseuri);
 }
 
 // Routes
+
+// test route
+var post = require(`./controllers/post`);
+app.use(`/post`, post);
+
+var user = require(`./controllers/user`);
+app.use(`/users`, user);
+
+
+
 app.get(`*`, function(req, res) {
   res.sendFile('public/index.html', { root: __dirname });
 });
