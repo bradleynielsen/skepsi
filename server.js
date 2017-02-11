@@ -13,18 +13,13 @@ var PORT = process.env.PORT || 3000;
 var app = express();
 
 // Middleware
-
-// use the public folder
 app.use(express.static(path.join(__dirname, 'public')));
-//
 app.use(logger(`dev`));
-
 app.use(bodyParser.json());
-
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
-// MONGOOSE DATABASE CONFIGURATION
+// ===============================================
+//        MONGOOSE DATABASE CONFIGURATION
 // ===============================================
 // local MongoDB
 const databaseuri = 'mongodb://localhost/skepsidb';
@@ -39,16 +34,18 @@ else {
     mongoose.connect(databaseuri);
 }
 
-// Routes
+// ===============================================
+//        Routes
+// ===============================================
 
-// test route
 var post = require(`./controllers/post`);
 app.use(`/post`, post);
 
 var user = require(`./controllers/user`);
 app.use(`/users`, user);
 
-
+var note = require(`./controllers/note`);
+app.use(`/newnote`, post);
 
 app.get(`*`, function(req, res) {
   res.sendFile('public/index.html', { root: __dirname });
@@ -60,6 +57,10 @@ app.listen(PORT, function() {
 });
 
 
+// ===============================================
+//        Mongoose connection
+// ===============================================
+mongoose.Promise = Promise;
 var db = mongoose.connection;
 // Show any mongoose errors
 db.on("error", function(error) {
@@ -70,3 +71,18 @@ db.on("error", function(error) {
 db.once("open", function() {
   console.log("Mongoose connection successful.");
 });
+
+//
+// initilize the db
+//
+//
+// var initDB = [
+//   {note:"init note"}
+// ];
+//
+// note.insertMany(initDB)
+// .then(function(mongooseDocuments) {
+//   console.log(mongooseDocuments);
+// }).catch(function(err) {
+//   console.log("Error inserting collections.")
+// });
