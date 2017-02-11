@@ -8,8 +8,7 @@ var Note = require('../models/note');
 
 router.post('/', (req, res) => {
   console.log( "request body:" + req.body);
-  res.send(req.body);
-  var newNote = new Note(req.body);
+    var newNote = new Note(req.body);
   newNote.save((err, doc) => {
     if (err) {
       console.log("You got router errors bro")
@@ -20,4 +19,4 @@ router.post('/', (req, res) => {
   });
 });
 
-module.exports = Note;
+module.exports = router;

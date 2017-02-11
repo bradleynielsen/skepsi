@@ -6,7 +6,7 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 // Mongoose mpromise deprecated - use bluebird promises
 var Promise = require("bluebird");
-
+mongoose.Promise = Promise;
 
 // Express Port/App Declaration
 var PORT = process.env.PORT || 3000;
@@ -45,7 +45,7 @@ var user = require(`./controllers/user`);
 app.use(`/users`, user);
 
 var note = require(`./controllers/note`);
-app.use(`/newnote`, post);
+app.use(`/newnote`, note);
 
 app.get(`*`, function(req, res) {
   res.sendFile('public/index.html', { root: __dirname });
