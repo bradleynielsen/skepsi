@@ -7,7 +7,7 @@ var Note = require('../models/note');
 
 
 router.post('/', (req, res) => {
-  console.log( "request body:" + req.body);
+  console.log(req.body);
     var newNote = new Note(req.body);
   newNote.save((err, doc) => {
     if (err) {
