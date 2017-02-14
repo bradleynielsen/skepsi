@@ -35,14 +35,16 @@ else {
 }
 
 // ===============================================
-//        Routes
+// ===============================================
+//<<<<<<<<<<<MMM<<<<<Routes>>>>>>>>>>>>>>>>>>>>>>>
+// ===============================================
 // ===============================================
 
 var post = require(`./controllers/post`);
 app.use(`/post`, post);
 
 var user = require(`./controllers/user`);
-app.use(`/users`, user);
+app.use(`/user`, user);
 
 var note = require(`./controllers/note`);
 app.use(`/newnote`, note);
@@ -50,6 +52,8 @@ app.use(`/newnote`, note);
 app.get(`*`, function(req, res) {
   res.sendFile('public/index.html', { root: __dirname });
 });
+
+
 
 // Connection to PORT
 app.listen(PORT, function() {
@@ -73,14 +77,12 @@ db.once("open", function() {
 });
 
 //
-// initilize the db
+// //initilize the db
+// var UserSchema = require(`./models/user.js`);
+// var initUser = new UserSchema.User({name: 'init user', password: 'admin', notes:{body: "test body of init user note"})
 //
 //
-// var initDB = [
-//   {note:"init note"}
-// ];
-//
-// note.insertMany(initDB)
+//  skepsi.user.insert(initUser)
 // .then(function(mongooseDocuments) {
 //   console.log(mongooseDocuments);
 // }).catch(function(err) {
