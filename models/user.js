@@ -12,7 +12,7 @@ var UserSchema = new Schema({
   password: {type: String, required: [true, 'Must provide a password.']},
   notes: [{
     title: String,
-    body: String,m
+    body: String,
     createdAt: {
       type: Date,
       default: Date.now

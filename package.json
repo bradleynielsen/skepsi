@@ -4,6 +4,7 @@
   "description": "thought saver",
   "main": "index.js",
   "scripts": {
+    "dev": "webpack -w --progress --colors --port 2992 --inline",
     "start": "node server",
     "build": "webpack -w",
     "test": "echo \"Error: no test specified\" && exit 1"
