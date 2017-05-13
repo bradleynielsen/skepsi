@@ -35,9 +35,7 @@ else {
 }
 
 // ===============================================
-// ===============================================
-// <<<<<<<<<<<MMM<<<<<Routes>>>>>>>>>>>>>>>>>>>>>>>
-// ===============================================
+//                   Routes
 // ===============================================
 
 var post = require(`./controllers/post`)
@@ -46,8 +44,6 @@ app.use(`/post`, post)
 var user = require(`./controllers/user`)
 app.use(`/user`, user)
 
-var note = require(`./controllers/note`)
-app.use(`/newnote`, note)
 
 app.get(`*`, function (req, res) {
   res.sendFile('public/index.html', { root: __dirname })
@@ -59,7 +55,7 @@ app.listen(PORT, function () {
 })
 
 // ===============================================
-//        Mongoose connection
+//           Mongoose connection
 // ===============================================
 mongoose.Promise = Promise
 var db = mongoose.connection
