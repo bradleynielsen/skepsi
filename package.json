@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server",
-    "dev": "webpack -w",
+    "build": "webpack -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +27,7 @@
     "material-ui": "^0.16.6",
     "mongoose": "^4.8.1",
     "morgan": "^1.8.0",
+    "path": "^0.12.7",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-grid-system": "^2.4.0",

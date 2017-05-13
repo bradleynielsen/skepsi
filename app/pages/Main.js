@@ -7,19 +7,16 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
-injectTapEventPlugin();
-
-
+injectTapEventPlugin()
 
 export default class Main extends React.Component {
-
-  render() {
+  render () {
     return (
       <MuiThemeProvider>
         <Container>
           {this.props.children}
         </Container>
       </MuiThemeProvider>
-    );
+    )
   }
 }

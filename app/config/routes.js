@@ -5,13 +5,12 @@ import Main from '../pages/Main'
 import LoginPage from '../pages/LoginPage'
 import NewNotePage from '../pages/NewNotePage'
 
-
 module.exports = (
   <Router history={browserHistory}>
-      <Route path="/" component={Main}>
-        <Route path="/login" component={LoginPage} />
-        <Route path="/newnote" component={NewNotePage} />
-        <IndexRoute component={LoginPage} />
-      </Route>
+    <Route path='/' component={Main}>
+      <Route path='/login' component={LoginPage} />
+      <Route path='/newnote' component={NewNotePage} />
+      <IndexRoute component={LoginPage} />
+    </Route>
   </Router>
-);
+)
